@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio 1 – AN Perfumería</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+ VARIABLES & RESET
+═══════════════════════════════════════════ */
+:root {
+ --pink: #C9566A;
+ --pink-l: #F2D0D7;
+ --pink-d: #8B2E42;
+ --gold: #C9A04A;
+ --gold-l: #F5E9C8;
+ --cream: #FAF6F1;
+ --ink: #1C1410;
+ --stone: #7A6E68;
+ --white: #FFFFFF;
+ --blue: #1565C0;
+ --blue-l: #DDEEFB;
+ --green: #2E7D32;
+ --green-l: #D7F5E3;
+ --orange: #E65100;
+ --orange-l:#FDE8C8;
+ --purple: #4527A0;
+ --purple-l:#EDE7F6;
+ --teal: #00695C;
+ --teal-l: #E0F2F1;
+ --s1: 0 2px 12px rgba(0,0,0,.08);
+ --s2: 0 6px 28px rgba(0,0,0,.12);
+ --s3: 0 16px 48px rgba(0,0,0,.16);
+ --r: 16px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+ font-family: 'DM Sans', sans-serif;
+ background: var(--cream);
+ color: var(--ink);
+ line-height: 1.65;
+ overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════
+ SCROLLBAR
+═══════════════════════════════════════════ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 3px; }
+
+/* ═══════════════════════════════════════════
+ NAV
+═══════════════════════════════════════════ */
+nav {
+ position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+ background: rgba(250,246,241,.92);
+ backdrop-filter: blur(12px);
+ border-bottom: 1px solid var(--pink-l);
+ padding: 0 2rem;
+ display: flex; align-items: center; justify-content: space-between;
+ height: 60px;
+ box-shadow: 0 2px 16px rgba(201,86,106,.08);
+}
+.nav-brand {
+ font-family: 'Playfair Display', serif;
+ font-size: 1.1rem; font-weight: 700;
+ color: var(--pink);
+ display: flex; align-items: center; gap: .5rem;
+}
+.nav-brand span { font-size: 1.4rem; }
+.nav-links {
+ display: flex; gap: .2rem; list-style: none;
+ flex-wrap: wrap;
+}
+.nav-links a {
+ text-decoration: none;
+ font-size: .78rem; font-weight: 500;
+ color: var(--stone);
+ padding: .3rem .7rem;
+ border-radius: 20px;
+ transition: all .2s;
+}
+.nav-links a:hover { background: var(--pink-l); color: var(--pink-d); }
+
+/* ═══════════════════════════════════════════
+ HERO
+═══════════════════════════════════════════ */
+.hero {
+ min-height: 100vh;
+ display: flex; flex-direction: column;
+ align-items: center; justify-content: center;
+ text-align: center;
+ padding: 80px 2rem 4rem;
+ background:
+ radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,86,106,.12) 0%, transparent 70%),
+ radial-gradient(ellipse 60% 40% at 80% 100%, rgba(201,160,74,.1) 0%, transparent 60%),
+ var(--cream);
+ position: relative; overflow: hidden;
+}
+/* floating petals */
+.petal {
+ position: absolute; border-radius: 50% 0 50% 0;
+ opacity: .18; animation: float 6s ease-in-out infinite;
+ pointer-events: none;
+}
+.petal:nth-child(1){ width:80px;height:80px;background:var(--pink);top:10%;left:5%;animation-delay:0s; }
+.petal:nth-child(2){ width:50px;height:50px;background:var(--gold);top:20%;right:8%;animation-delay:1.5s; }
+.petal:nth-child(3){ width:120px;height:120px;background:var(--pink-l);bottom:15%;left:3%;animation-delay:3s; }
+.petal:nth-child(4){ width:60px;height:60px;background:var(--gold-l);bottom:25%;right:5%;animation-delay:4.5s; }
+.petal:nth-child(5){ width:40px;height:40px;background:var(--pink);top:50%;left:12%;animation-delay:2s; }
+@keyframes float {
+ 0%,100%{ transform: translateY(0) rotate(0deg); }
+ 50%{ transform: translateY(-20px) rotate(15deg); }
+}
+
+.hero-logo {
+ width: 130px; height: 130px;
+ background: var(--white);
+ border-radius: 50%;
+ border: 3px solid var(--pink-l);
+ display: flex; align-items: center; justify-content: center;
+ font-size: 3.5rem;
+ box-shadow: 0 8px 40px rgba(201,86,106,.2);
+ margin-bottom: 2rem;
+ animation: pulse-logo 3s ease-in-out infinite;
+ position: relative; z-index:1;
+}
+@keyframes pulse-logo {
+ 0%,100%{ box-shadow: 0 8px 40px rgba(201,86,106,.2); }
+ 50%{ box-shadow: 0 8px 60px rgba(201,86,106,.4); }
+}
+.hero-tag {
+ display: inline-block;
+ background: var(--pink-l);
+ color: var(--pink-d);
+ font-size: .8rem; font-weight: 600;
+ padding: .3rem 1rem;
+ border-radius: 20px;
+ letter-spacing: .06em;
+ margin-bottom: 1rem;
+ position: relative; z-index:1;
+}
+.hero h1 {
+ font-family: 'Playfair Display', serif;
+ font-size: clamp(2.8rem, 6vw, 5rem);
+ font-weight: 900; line-height: 1.1;
+ color: var(--ink);
+ margin-bottom: .5rem;
+ position: relative; z-index:1;
+}
+.hero h1 em { color: var(--pink); font-style: italic; }
+.hero-sub {
+ font-family: 'Playfair Display', serif;
+ font-size: clamp(1rem, 2vw, 1.3rem);
+ font-style: italic; color: var(--stone);
+ margin-bottom: 1.5rem;
+ position: relative; z-index:1;
+}
+.hero-meta {
+ display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+ margin-bottom: 3rem;
+ position: relative; z-index:1;
+}
+.meta-pill {
+ background: var(--white);
+ border: 1px solid var(--pink-l);
+ color: var(--stone);
+ font-size: .82rem; padding: .4rem 1rem;
+ border-radius: 20px;
+ box-shadow: var(--s1);
+}
+.hero-index {
+ display: flex; gap: .7rem; flex-wrap: wrap; justify-content: center;
+ position: relative; z-index:1;
+}
+.idx-btn {
+ background: var(--white);
+ border: 2px solid var(--pink-l);
+ color: var(--ink);
+ font-family: 'DM Sans', sans-serif;
+ font-size: .82rem; font-weight: 600;
+ padding: .6rem 1.2rem;
+ border-radius: 30px;
+ cursor: pointer; text-decoration: none;
+ transition: all .25s;
+ box-shadow: var(--s1);
+}
+.idx-btn:hover { background: var(--pink); border-color: var(--pink); color: #fff; transform: translateY(-2px); box-shadow: var(--s2); }
+
+/* scroll hint */
+.scroll-hint {
+ position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+ display: flex; flex-direction: column; align-items: center; gap: .4rem;
+ color: var(--stone); font-size: .75rem;
+ animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce { 0%,100%{ transform: translateX(-50%) translateY(0); } 50%{ transform: translateX(-50%) translateY(6px); } }
+
+/* ═══════════════════════════════════════════
+ SECTIONS WRAPPER
+═══════════════════════════════════════════ */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+section {
+ padding: 5rem 0;
+ opacity: 0; transform: translateY(30px);
+ transition: opacity .6s ease, transform .6s ease;
+}
+section.visible { opacity: 1; transform: translateY(0); }
+
+.section-header {
+ text-align: center;
+ margin-bottom: 3.5rem;
+}
+.section-num {
+ display: inline-flex; align-items: center; justify-content: center;
+ width: 48px; height: 48px;
+ background: var(--pink);
+ color: #fff;
+ font-family: 'DM Mono', monospace;
+ font-size: .95rem; font-weight: 500;
+ border-radius: 50%;
+ margin-bottom: 1rem;
+ box-shadow: 0 4px 16px rgba(201,86,106,.35);
+}
+.section-title {
+ font-family: 'Playfair Display', serif;
+ font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+ font-weight: 900; color: var(--ink);
+ margin-bottom: .5rem;
+}
+.section-title em { color: var(--pink); font-style: italic; }
+.section-desc {
+ color: var(--stone); font-size: 1rem;
+ max-width: 520px; margin: 0 auto;
+}
+
+/* divider */
+.divider {
+ height: 1px;
+ background: linear-gradient(90deg, transparent, var(--pink-l), transparent);
+ margin: 0 auto 5rem;
+ max-width: 700px;
+}
+
+/* ═══════════════════════════════════════════
+ CARD BASE
+═══════════════════════════════════════════ */
+.card {
+ background: var(--white);
+ border-radius: var(--r);
+ box-shadow: var(--s1);
+ overflow: hidden;
+ transition: transform .25s, box-shadow .25s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--s2); }
+
+/* ═══════════════════════════════════════════
+ 1. ACTIVOS
+═══════════════════════════════════════════ */
+#activos { background: var(--cream); }
+
+.activos-group { margin-bottom: 2.5rem; }
+.activos-group-title {
+ display: flex; align-items: center; gap: .8rem;
+ font-family: 'Playfair Display', serif;
+ font-size: 1.3rem; font-weight: 700;
+ color: var(--pink-d);
+ margin-bottom: 1.5rem;
+ padding-bottom: .6rem;
+ border-bottom: 2px solid var(--pink-l);
+}
+.activos-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+ gap: 1.2rem;
+}
+.activo-card {
+ background: var(--white);
+ border-radius: var(--r);
+ border: 1px solid var(--pink-l);
+ padding: 1.5rem;
+ box-shadow: var(--s1);
+ transition: all .25s;
+ position: relative; overflow: hidden;
+}
+.activo-card::before {
+ content: '';
+ position: absolute; top: 0; left: 0; right: 0; height: 4px;
+ background: linear-gradient(90deg, var(--pink), var(--gold));
+}
+.activo-card:hover { transform: translateY(-4px); box-shadow: var(--s2); border-color: var(--pink); }
+.activo-icon {
+ font-size: 2rem; margin-bottom: .8rem;
+ display: block;
+}
+.activo-name {
+ font-weight: 700; font-size: 1rem;
+ color: var(--ink); margin-bottom: .3rem;
+}
+.activo-what {
+ font-size: .82rem; color: var(--stone);
+ margin-bottom: .8rem;
+ font-style: italic;
+}
+.activo-row {
+ display: flex; flex-direction: column; gap: .5rem;
+}
+.activo-item {
+ font-size: .84rem;
+ padding: .4rem .7rem;
+ border-radius: 8px;
+ background: var(--cream);
+}
+.activo-item strong { display: block; font-size: .74rem; letter-spacing: .05em; text-transform: uppercase; color: var(--pink); margin-bottom: .1rem; }
+
+/* pago badge */
+.badge-pago {
+ display: inline-flex; align-items: center; gap: .3rem;
+ background: var(--gold-l);
+ color: var(--gold);
+ font-size: .74rem; font-weight: 700;
+ padding: .2rem .7rem;
+ border-radius: 12px;
+ margin-bottom: .6rem;
+ letter-spacing: .04em;
+}
+
+/* ═══════════════════════════════════════════
+ 2. FODA
+═══════════════════════════════════════════ */
+#foda { background: linear-gradient(180deg, var(--cream) 0%, var(--pink-l) 50%, var(--cream) 100%); }
+
+.foda-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 1.5rem;
+}
+.foda-card {
+ border-radius: var(--r);
+ padding: 2rem;
+ position: relative; overflow: hidden;
+}
+.foda-card::after {
+ content: attr(data-letter);
+ position: absolute; right: -10px; bottom: -20px;
+ font-family: 'Playfair Display', serif;
+ font-size: 8rem; font-weight: 900;
+ opacity: .07; line-height: 1;
+ color: currentColor;
+}
+.foda-f { background: var(--green-l); border: 2px solid #a8d5ab; color: var(--green); }
+.foda-o { background: var(--blue-l); border: 2px solid #90c4f5; color: var(--blue); }
+.foda-d { background: var(--orange-l); border: 2px solid #f5c090; color: var(--orange); }
+.foda-a { background: var(--purple-l); border: 2px solid #c0b6f2; color: var(--purple); }
+.foda-card-title {
+ font-family: 'Playfair Display', serif;
+ font-size: 1.3rem; font-weight: 700;
+ margin-bottom: 1.2rem;
+ display: flex; align-items: center; gap: .6rem;
+}
+.foda-list { list-style: none; display: flex; flex-direction: column; gap: .7rem; }
+.foda-list li {
+ font-size: .92rem; color: var(--ink);
+ padding: .6rem .9rem;
+ background: rgba(255,255,255,.6);
+ border-radius: 10px;
+ border-left: 3px solid currentColor;
+ position: relative; z-index: 1;
+}
+.foda-list li strong { display: block; font-weight: 600; margin-bottom: .1rem; }
+
+/* ═══════════════════════════════════════════
+ 3. MATRIZ
+═══════════════════════════════════════════ */
+#matriz { background: var(--cream); }
+
+.matriz-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 1.5rem;
+}
+.matriz-card {
+ border-radius: var(--r);
+ padding: 1.8rem;
+ border: 1px solid rgba(0,0,0,.06);
+ box-shadow: var(--s1);
+ background: var(--white);
+}
+.matriz-header {
+ display: flex; align-items: center; gap: .8rem;
+ margin-bottom: 1.2rem;
+}
+.matriz-badge {
+ font-family: 'DM Mono', monospace;
+ font-size: .78rem; font-weight: 500;
+ padding: .3rem .8rem;
+ border-radius: 20px;
+ white-space: nowrap;
+}
+.fo .matriz-badge { background: var(--green-l); color: var(--green); }
+.fa .matriz-badge { background: var(--blue-l); color: var(--blue); }
+.do .matriz-badge { background: var(--orange-l); color: var(--orange); }
+.da .matriz-badge { background: var(--purple-l); color: var(--purple); }
+.matriz-header-title {
+ font-weight: 700; font-size: 1rem;
+}
+.fo .matriz-header-title { color: var(--green); }
+.fa .matriz-header-title { color: var(--blue); }
+.do .matriz-header-title { color: var(--orange); }
+.da .matriz-header-title { color: var(--purple); }
+.matriz-items { display: flex; flex-direction: column; gap: .8rem; }
+.matriz-item {
+ font-size: .88rem;
+ padding: .7rem 1rem;
+ border-radius: 10px;
+ border-left: 3px solid;
+ background: var(--cream);
+}
+.fo .matriz-item { border-color: var(--green); }
+.fa .matriz-item { border-color: var(--blue); }
+.do .matriz-item { border-color: var(--orange); }
+.da .matriz-item { border-color: var(--purple); }
+.matriz-item-check {
+ font-size: .72rem; text-transform: uppercase; letter-spacing: .05em;
+ font-weight: 700; margin-bottom: .2rem;
+}
+.fo .matriz-item-check { color: var(--green); }
+.fa .matriz-item-check { color: var(--blue); }
+.do .matriz-item-check { color: var(--orange); }
+.da .matriz-item-check { color: var(--purple); }
+.matriz-meta {
+ display: inline-block;
+ font-size: .75rem; font-weight: 600;
+ margin-top: .4rem;
+ padding: .15rem .6rem;
+ border-radius: 8px;
+}
+.fo .matriz-meta { background: var(--green-l); color: var(--green); }
+.fa .matriz-meta { background: var(--blue-l); color: var(--blue); }
+.do .matriz-meta { background: var(--orange-l); color: var(--orange); }
+.da .matriz-meta { background: var(--purple-l); color: var(--purple); }
+
+/* ═══════════════════════════════════════════
+ 4. PESTEL
+═══════════════════════════════════════════ */
+#pestel { background: linear-gradient(180deg, var(--cream) 0%, rgba(201,160,74,.06) 100%); }
+
+.pestel-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 1.5rem;
+}
+.pestel-card {
+ background: var(--white);
+ border-radius: var(--r);
+ overflow: hidden;
+ box-shadow: var(--s1);
+ transition: all .25s;
+}
+.pestel-card:hover { transform: translateY(-4px); box-shadow: var(--s2); }
+.pestel-head {
+ padding: 1.2rem 1.5rem;
+ color: #fff;
+ display: flex; align-items: center; gap: .8rem;
+}
+.pestel-head .pestel-letter {
+ font-family: 'DM Mono', monospace;
+ font-size: 1.6rem; font-weight: 500;
+ background: rgba(255,255,255,.2);
+ width: 44px; height: 44px;
+ border-radius: 50%;
+ display: flex; align-items: center; justify-content: center;
+ flex-shrink: 0;
+}
+.pestel-head-text { font-size: .95rem; font-weight: 600; }
+.pestel-p { background: #1565C0; }
+.pestel-e1 { background: #2E7D32; }
+.pestel-s { background: #E65100; }
+.pestel-t { background: #6A1B9A; }
+.pestel-l { background: #AD1457; }
+.pestel-e2 { background: #00695C; }
+.pestel-body { padding: 1.2rem 1.5rem; }
+.pestel-row {
+ margin-bottom: 1rem;
+}
+.pestel-row-tag {
+ display: inline-flex; align-items: center; gap: .3rem;
+ font-size: .72rem; font-weight: 700;
+ text-transform: uppercase; letter-spacing: .06em;
+ padding: .15rem .6rem;
+ border-radius: 6px;
+ margin-bottom: .3rem;
+}
+.tag-op { background: #d7f5e3; color: var(--green); }
+.tag-risk { background: #fde8c8; color: var(--orange); }
+.tag-action { background: var(--pink-l); color: var(--pink-d); }
+.pestel-row p { font-size: .88rem; color: var(--ink); }
+
+/* ═══════════════════════════════════════════
+ 5. OBJETIVOS SMART
+═══════════════════════════════════════════ */
+#smart { background: var(--cream); }
+
+.smart-timeline {
+ position: relative;
+ padding-left: 2.5rem;
+}
+.smart-timeline::before {
+ content: '';
+ position: absolute; left: 0; top: 0; bottom: 0;
+ width: 3px;
+ background: linear-gradient(180deg, var(--pink), var(--gold), var(--green));
+ border-radius: 2px;
+}
+.smart-item {
+ position: relative; margin-bottom: 3rem;
+}
+.smart-item::before {
+ content: '';
+ position: absolute; left: -2.1rem; top: 1.4rem;
+ width: 16px; height: 16px;
+ border-radius: 50%;
+ border: 3px solid var(--white);
+ box-shadow: var(--s1);
+}
+.smart-item-1::before { background: var(--pink); }
+.smart-item-2::before { background: var(--gold); }
+.smart-item-3::before { background: var(--green); }
+
+.smart-card {
+ background: var(--white);
+ border-radius: var(--r);
+ overflow: hidden;
+ box-shadow: var(--s1);
+}
+.smart-head {
+ padding: 1.4rem 2rem;
+ display: flex; align-items: center; gap: 1rem;
+ flex-wrap: wrap;
+}
+.smart-item-1 .smart-head { background: linear-gradient(135deg, var(--pink), var(--pink-d)); }
+.smart-item-2 .smart-head { background: linear-gradient(135deg, var(--gold), #9A720A); }
+.smart-item-3 .smart-head { background: linear-gradient(135deg, var(--green), #1B4A1E); }
+.smart-num {
+ font-family: 'DM Mono', monospace;
+ font-size: .8rem; font-weight: 500;
+ background: rgba(255,255,255,.2);
+ padding: .3rem .8rem;
+ border-radius: 12px;
+ color: #fff;
+}
+.smart-title {
+ font-family: 'Playfair Display', serif;
+ font-size: 1.2rem; font-weight: 700;
+ color: #fff;
+}
+.smart-meta-tag {
+ background: rgba(255,255,255,.15);
+ color: #fff;
+ font-size: .78rem; font-weight: 600;
+ padding: .25rem .8rem;
+ border-radius: 12px;
+}
+.smart-meta { font-size: .88rem; color: rgba(255,255,255,.85); }
+.smart-body { padding: 1.5rem 2rem 2rem; }
+.smart-goal {
+ font-size: 1.05rem; font-weight: 600;
+ color: var(--ink);
+ margin-bottom: 1.5rem;
+ padding: .9rem 1.2rem;
+ border-radius: 10px;
+ border-left: 4px solid;
+ background: var(--cream);
+}
+.smart-item-1 .smart-goal { border-color: var(--pink); }
+.smart-item-2 .smart-goal { border-color: var(--gold); }
+.smart-item-3 .smart-goal { border-color: var(--green); }
+
+/* 5S chips */
+.s5-grid {
+ display: grid;
+ grid-template-columns: repeat(5, 1fr);
+ gap: .6rem;
+ margin-bottom: 1.5rem;
+}
+@media(max-width:680px){ .s5-grid{ grid-template-columns: repeat(3,1fr); } }
+.s5-chip {
+ border-radius: 10px;
+ padding: .7rem .5rem;
+ text-align: center;
+}
+.s5-chip-label {
+ display: block;
+ font-family: 'DM Mono', monospace;
+ font-size: .7rem; font-weight: 500;
+ text-transform: uppercase;
+ letter-spacing: .05em;
+ margin-bottom: .2rem;
+}
+.s5-chip-crit {
+ font-size: .7rem; font-weight: 600;
+ display: block;
+}
+.chip-sell { background: var(--blue-l); }
+.chip-sell .s5-chip-label, .chip-sell .s5-chip-crit { color: var(--blue); }
+.chip-speak { background: var(--orange-l); }
+.chip-speak .s5-chip-label, .chip-speak .s5-chip-crit { color: var(--orange); }
+.chip-serve { background: var(--green-l); }
+.chip-serve .s5-chip-label, .chip-serve .s5-chip-crit { color: var(--green); }
+.chip-save { background: var(--purple-l); }
+.chip-save .s5-chip-label, .chip-save .s5-chip-crit { color: var(--purple); }
+.chip-sizzle { background: var(--pink-l); }
+.chip-sizzle .s5-chip-label, .chip-sizzle .s5-chip-crit { color: var(--pink-d); }
+
+.smart-sentence {
+ font-size: .92rem;
+ line-height: 1.75;
+ color: var(--ink);
+ padding: 1rem 1.2rem;
+ background: var(--cream);
+ border-radius: 10px;
+ border: 1px solid var(--pink-l);
+}
+.smart-sentence .s-tag {
+ display: inline;
+ font-size: .76rem; font-weight: 700;
+ padding: .1rem .45rem;
+ border-radius: 6px;
+ vertical-align: middle;
+ margin: 0 1px;
+}
+.tag-sell { background: var(--blue-l); color: var(--blue); }
+.tag-speak { background: var(--orange-l); color: var(--orange); }
+.tag-serve { background: var(--green-l); color: var(--green); }
+.tag-save { background: var(--purple-l); color: var(--purple); }
+.tag-sizzle { background: var(--pink-l); color: var(--pink-d); }
+
+/* ═══════════════════════════════════════════
+ 6. STP
+═══════════════════════════════════════════ */
+#stp { background: linear-gradient(180deg, rgba(201,86,106,.04) 0%, var(--cream) 100%); }
+
+.stp-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 1.5rem;
+ margin-bottom: 2rem;
+}
+@media(max-width:680px){ .stp-grid{ grid-template-columns: 1fr; } }
+.stp-card {
+ border-radius: var(--r);
+ padding: 2rem 1.5rem;
+ text-align: center;
+ box-shadow: var(--s1);
+ transition: all .25s;
+}
+.stp-card:hover { transform: translateY(-4px); box-shadow: var(--s2); }
+.stp-s { background: var(--blue-l); border: 2px solid #90c4f5; }
+.stp-t { background: var(--pink-l); border: 2px solid #f0a0b0; }
+.stp-p { background: var(--gold-l); border: 2px solid #e8d090; }
+.stp-icon { font-size: 2.5rem; display: block; margin-bottom: .8rem; }
+.stp-card-title {
+ font-family: 'Playfair Display', serif;
+ font-size: 1.2rem; font-weight: 700;
+ margin-bottom: .4rem;
+}
+.stp-s .stp-card-title { color: var(--blue); }
+.stp-t .stp-card-title { color: var(--pink-d); }
+.stp-p .stp-card-title { color: #7A5000; }
+.stp-q {
+ font-size: .78rem; font-weight: 600;
+ text-transform: uppercase; letter-spacing: .05em;
+ margin-bottom: 1rem; opacity: .7;
+}
+.stp-content { font-size: .88rem; color: var(--ink); line-height: 1.6; }
+.stp-tag {
+ display: inline-block;
+ font-size: .8rem; font-weight: 600;
+ padding: .25rem .8rem;
+ border-radius: 12px;
+ margin: .2rem .1rem;
+}
+.stp-s .stp-tag { background: rgba(21,101,192,.12); color: var(--blue); }
+.stp-t .stp-tag { background: rgba(201,86,106,.12); color: var(--pink-d); }
+.stp-p .stp-tag { background: rgba(201,160,74,.2); color: #7A5000; }
+
+.posicionamiento-box {
+ background: linear-gradient(135deg, var(--pink-d), var(--ink));
+ border-radius: var(--r);
+ padding: 2.5rem;
+ text-align: center;
+ color: #fff;
+ margin-top: 1rem;
+}
+.posicionamiento-box blockquote {
+ font-family: 'Playfair Display', serif;
+ font-size: clamp(1rem, 2vw, 1.35rem);
+ font-style: italic;
+ line-height: 1.7;
+ color: #fff;
+ margin-bottom: 1.2rem;
+}
+.posicionamiento-box .diferenciador {
+ display: inline-flex; gap: .8rem; flex-wrap: wrap; justify-content: center;
+}
+.dif-tag {
+ background: rgba(255,255,255,.15);
+ color: #fff;
+ font-size: .82rem; font-weight: 600;
+ padding: .3rem .9rem;
+ border-radius: 20px;
+ border: 1px solid rgba(255,255,255,.2);
+}
+
+/* ═══════════════════════════════════════════
+ 7. 7 P's
+═══════════════════════════════════════════ */
+#pees { background: var(--cream); }
+
+.p7-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+ gap: 1.2rem;
+}
+.p7-card {
+ background: var(--white);
+ border-radius: var(--r);
+ overflow: hidden;
+ box-shadow: var(--s1);
+ transition: all .25s;
+ border: 1px solid rgba(0,0,0,.05);
+}
+.p7-card:hover { transform: translateY(-4px); box-shadow: var(--s2); }
+.p7-head {
+ padding: 1.1rem 1.4rem;
+ display: flex; align-items: center; gap: .8rem;
+}
+.p7-num {
+ font-family: 'DM Mono', monospace;
+ font-size: .7rem;
+ background: rgba(255,255,255,.25);
+ padding: .15rem .5rem;
+ border-radius: 6px;
+ color: rgba(255,255,255,.8);
+}
+.p7-name { font-weight: 700; font-size: 1rem; color: #fff; }
+.p7-body { padding: 1.2rem 1.4rem; font-size: .88rem; color: var(--ink); }
+.p7-body p { margin-bottom: .5rem; }
+.p7-body strong { color: var(--pink-d); }
+.p7-body ul { padding-left: 1rem; }
+.p7-body li { margin-bottom: .25rem; }
+
+.p1 .p7-head { background: linear-gradient(135deg, #C9566A, #8B2E42); }
+.p2 .p7-head { background: linear-gradient(135deg, #C9A04A, #7A5000); }
+.p3 .p7-head { background: linear-gradient(135deg, #1565C0, #0D3A6E); }
+.p4 .p7-head { background: linear-gradient(135deg, #2E7D32, #1B4A1E); }
+.p5 .p7-head { background: linear-gradient(135deg, #E65100, #6D2700); }
+.p6 .p7-head { background: linear-gradient(135deg, #4527A0, #1A0066); }
+.p7 .p7-head { background: linear-gradient(135deg, #00695C, #003D35); }
+
+/* ═══════════════════════════════════════════
+ 8. 4 M's
+═══════════════════════════════════════════ */
+#emes { background: linear-gradient(180deg, rgba(201,160,74,.05) 0%, var(--cream) 100%); }
+
+.m4-grid {
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 1.5rem;
+}
+@media(max-width:680px){ .m4-grid{ grid-template-columns: 1fr; } }
+.m4-card {
+ border-radius: var(--r);
+ padding: 2rem;
+ box-shadow: var(--s1);
+ transition: all .25s;
+}
+.m4-card:hover { transform: translateY(-4px); box-shadow: var(--s2); }
+.m-mission { background: var(--blue-l); border: 2px solid #90c4f5; }
+.m-money { background: var(--green-l); border: 2px solid #a8d5ab; }
+.m-message { background: var(--pink-l); border: 2px solid #f0a0b0; }
+.m-media { background: var(--purple-l); border: 2px solid #c0b6f2; }
+.m4-icon { font-size: 2rem; display: block; margin-bottom: .6rem; }
+.m4-title {
+ font-family: 'Playfair Display', serif;
+ font-size: 1.1rem; font-weight: 700;
+ margin-bottom: .8rem;
+}
+.m-mission .m4-title { color: var(--blue); }
+.m-money .m4-title { color: var(--green); }
+.m-message .m4-title { color: var(--pink-d); }
+.m-media .m4-title { color: var(--purple); }
+.m4-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
+.m4-list li {
+ font-size: .88rem; color: var(--ink);
+ padding: .45rem .8rem;
+ background: rgba(255,255,255,.7);
+ border-radius: 8px;
+ display: flex; align-items: flex-start; gap: .5rem;
+}
+.m4-list li::before { content: '→'; font-weight: 700; flex-shrink: 0; margin-top: .05rem; }
+.m-mission .m4-list li::before { color: var(--blue); }
+.m-money .m4-list li::before { color: var(--green); }
+.m-message .m4-list li::before { color: var(--pink-d); }
+.m-media .m4-list li::before { color: var(--purple); }
+
+/* ═══════════════════════════════════════════
+ 9. SOSTAC
+═══════════════════════════════════════════ */
+#sostac { background: var(--cream); }
+
+.sostac-grid {
+ display: flex; flex-direction: column; gap: 1.2rem;
+}
+.sostac-row {
+ display: grid;
+ grid-template-columns: 80px 1fr;
+ align-items: start;
+ gap: 0;
+ background: var(--white);
+ border-radius: var(--r);
+ box-shadow: var(--s1);
+ overflow: hidden;
+ transition: all .25s;
+}
+.sostac-row:hover { transform: translateX(4px); box-shadow: var(--s2); }
+.sostac-letter {
+ display: flex; flex-direction: column;
+ align-items: center; justify-content: center;
+ padding: 1.8rem .5rem;
+ color: #fff;
+ font-family: 'DM Mono', monospace;
+ gap: .3rem;
+}
+.sl-big {
+ font-size: 2.5rem; font-weight: 500;
+ line-height: 1;
+}
+.sl-word {
+ font-size: .62rem; text-transform: uppercase;
+ letter-spacing: .08em; opacity: .8;
+}
+.sl-s1 { background: var(--blue); }
+.sl-o { background: var(--green); }
+.sl-s2 { background: var(--orange); }
+.sl-t { background: var(--purple); }
+.sl-a { background: var(--pink); }
+.sl-c { background: var(--teal); }
+.sostac-content {
+ padding: 1.5rem 2rem;
+}
+.sostac-q {
+ font-size: .75rem; font-weight: 700;
+ text-transform: uppercase; letter-spacing: .06em;
+ margin-bottom: .4rem;
+}
+.sl-s1~.sostac-content .sostac-q { color: var(--blue); }
+.sl-o~.sostac-content .sostac-q { color: var(--green); }
+.sl-s2~.sostac-content .sostac-q { color: var(--orange); }
+.sl-t~.sostac-content .sostac-q { color: var(--purple); }
+.sl-a~.sostac-content .sostac-q { color: var(--pink); }
+.sl-c~.sostac-content .sostac-q { color: var(--teal); }
+.sostac-content p { font-size: .9rem; color: var(--ink); line-height: 1.65; }
+
+/* ═══════════════════════════════════════════
+ FOOTER
+═══════════════════════════════════════════ */
+footer {
+ background: var(--ink);
+ color: rgba(255,255,255,.6);
+ text-align: center;
+ padding: 3rem 1.5rem;
+}
+footer .footer-logo {
+ font-family: 'Playfair Display', serif;
+ font-size: 1.6rem; font-weight: 900;
+ color: var(--gold);
+ display: block; margin-bottom: .5rem;
+}
+footer p { font-size: .85rem; margin-bottom: .3rem; }
+footer a { color: var(--pink-l); text-decoration: none; }
+
+/* ═══════════════════════════════════════════
+ RESPONSIVE
+═══════════════════════════════════════════ */
+@media(max-width:768px){
+ .foda-grid, .matriz-grid { grid-template-columns: 1fr; }
+ .m4-grid { grid-template-columns: 1fr; }
+ .smart-timeline { padding-left: 1.5rem; }
+}
+@media(max-width:500px){
+ .sostac-row { grid-template-columns: 60px 1fr; }
+ .sl-big { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body> <!-- ══════════════════════════════════════════════
+ NAV
+══════════════════════════════════════════════ -->
+<nav> <div class="nav-brand"><span>🌸</span>AN Perfumería</div> <ul class="nav-links"> <li><a href="#activos">Activos</a></li> <li><a href="#foda">FODA</a></li> <li><a href="#matriz">Matriz</a></li> <li><a href="#pestel">PESTEL</a></li> <li><a href="#smart">SMART</a></li> <li><a href="#stp">STP</a></li> <li><a href="#pees">7P's</a></li> <li><a href="#emes">4M's</a></li> <li><a href="#sostac">SOSTAC</a></li> </ul>
+</nav> <!-- ══════════════════════════════════════════════
+ HERO
+══════════════════════════════════════════════ -->
+<section class="hero" style="opacity:1;transform:none;"> <div class="petal"></div><div class="petal"></div> <div class="petal"></div><div class="petal"></div><div class="petal"></div> <div class="hero-logo">🌸</div> <div class="hero-tag">PORTAFOLIO 1 · CORTE 1</div> <h1><em>AN Perfumería</em></h1> <p class="hero-sub">Lociones 1.1. · Réplicas de diseñador · Aromas premium a precio accesible</p> <div class="hero-meta"> <span class="meta-pill">Ibagué, Tolima – Colombia</span> <span class="meta-pill">Curso: Marketing Digital – ABP</span> <span class="meta-pill">Marzo 2025</span> </div> <div class="hero-index"> <a href="#activos" class="idx-btn">1. Activos</a> <a href="#foda" class="idx-btn">2. FODA</a> <a href="#matriz" class="idx-btn">3. Matriz FO-FA-DO-DA</a> <a href="#pestel" class="idx-btn">4. PESTEL</a> <a href="#smart" class="idx-btn">5. Objetivos SMART</a> <a href="#stp" class="idx-btn">6. STP</a> <a href="#pees" class="idx-btn">7. Las 7 P's</a> <a href="#emes" class="idx-btn">8. Las 4 M's</a> <a href="#sostac" class="idx-btn">9. Mapa SOSTAC</a> </div> <div class="scroll-hint"> <span>Desplázate para explorar</span> <span style="font-size:1.2rem;">↓</span> </div>
+</section> <!-- ══════════════════════════════════════════════
+ 1. ACTIVOS
+══════════════════════════════════════════════ -->
+<section id="activos"> <div class="container"> <div class="section-header"> <div class="section-num">1</div> <h2 class="section-title"><em>Activos</em>Digitales</h2> <p class="section-desc">Herramientas y recursos disponibles para impulsar AN Perfumería</p> </div> <!-- PRESTADOS --> <div class="activos-group"> <div class="activos-group-title">Activos Prestados </div> <div class="activos-grid"> <div class="activo-card"> <div class="activo-name">WhatsApp Business</div> <div class="activo-what">App con herramientas empresariales (catálogo, etiquetas, respuestas rápidas)</div> <div class="activo-row"> <div class="activo-item"><strong>¿Cómo lo usaré?</strong>Crear catálogo de lociones con precios, responder en 2 min, enviar actualizaciones de stock.</div> <div class="activo-item"><strong>Resultado</strong>Base de datos organizada, aumento de respuestas, conversiones claras.</div> </div> </div> <div class="activo-card"> <div class="activo-name">Instagram</div> <div class="activo-what">Red social visual ideal para mostrar productos de lujo.</div> <div class="activo-row"> <div class="activo-item"><strong>¿Cómo lo usaré?</strong>Fotos de frascos, videos unboxing, historias con botones, testimonios.</div> <div class="activo-item"><strong>Resultado</strong>Visibilidad gratuita, redirección a WhatsApp.</div> </div> </div> <div class="activo-card"> <div class="activo-name">IA</div> <div class="activo-what">Herramienta para generar copy, respuestas y contenido.</div> <div class="activo-row"> <div class="activo-item"><strong>¿Cómo lo usaré?</strong>Crear mensajes persuasivos, textos IG, respuestas auténticas.</div> <div class="activo-item"><strong>Resultado</strong>Ahorrar tiempo y mensajes profesionales.</div> </div> </div> <div class="activo-card"> <span class="activo-icon">️</span> <div class="activo-name">Recomendación boca a boca</div> <div class="activo-what">Red de contactos locales que conocen el producto.</div> <div class="activo-row"> <div class="activo-item"><strong>¿Cómo lo usaré?</strong>Pedir a clientes que compartan y den reseña.</div> <div class="activo-item"><strong>Resultado</strong>Clientes de confianza, referencias auténticas, tasa de compra alta.</div> </div> </div> </div> </div> <!-- PROPIOS --> <div class="activos-group"> <div class="activos-group-title">Activos Propios </div> <div class="activos-grid"> <div class="activo-card"> <div class="activo-name">Fórmula 1.1</div> <div class="activo-what">Aromas que replican fielmente marcas (Clásicas y Árabes).</div> <div class="activo-row"> <div class="activo-item"><strong>¿Cómo lo usaré?</strong>Destacar que es "aroma 1.1", mencionar que es accesible.</div> <div class="activo-item"><strong>Resultado</strong>Propuesta clara: "Aroma original a menor precio".</div> </div> </div> <div class="activo-card"> <div class="activo-name">Empaque Premium</div> <div class="activo-what">Frascos de buena calidad, cajas con diseño limpio.</div> <div class="activo-row"> <div class="activo-item"><strong>¿Cómo lo usaré?</strong>Fotografiar bien, hacer unboxing bonito, justificar precio.</div> <div class="activo-item"><strong>Resultado</strong>Diferenciación visual, generar deseo, percepción premium.</div> </div> </div> </div> </div> <!-- PAGOS --> <div class="activos-group"> <div class="activos-group-title">Activos Pagos (Inversiones Posibles) </div> <div class="activos-grid"> <div class="activo-card"> <span class="badge-pago">Inversión</span> <div class="activo-name">Pauta Instagram / Facebook</div> <div class="activo-row"> <div class="activo-item"><strong>Inversión</strong> $75K – $150K inicial</div> <div class="activo-item"><strong>Resultado</strong>De 4 a 20 clientes/mes</div> </div> </div> <div class="activo-card"> <span class="badge-pago">Inversión</span> <div class="activo-name">Fotografía profesional</div> <div class="activo-row"> <div class="activo-item"><strong>Inversión</strong> 1 sesión, $50K</div> <div class="activo-item"><strong>Resultado</strong>Aumentar percepción de calidad</div> </div> </div> </div> </div> </div>
+</section> <div class="divider"></div> <!-- ══════════════════════════════════════════════
+ 2. FODA
+══════════════════════════════════════════════ -->
+<section id="foda"> <div class="container"> <div class="section-header"> <div class="section-num">2</div> <h2 class="section-title">Análisis <em>FODA</em></h2> <p class="section-desc">Diagnóstico interno y externo de AN Perfumería</p> </div> <div class="foda-grid"> <div class="foda-card foda-f" data-letter="F"> <div class="foda-card-title">Fortalezas</div> <ul class="foda-list"> <li><strong>Propuesta única</strong>Aroma de diseñador auténtico a menor precio que el original.</li> <li><strong>Transparencia</strong>Mencionar las marcas y aclarar que es réplica 1.1 desde el inicio. Generar confianza.</li> <li><strong>Atención personal</strong>Responder rápido y conocer los clientes. Lealtad garantizada.</li> </ul> </div> <div class="foda-card foda-o" data-letter="O"> <div class="foda-card-title">⭐ Oportunidades</div> <ul class="foda-list"> <li><strong>Mercado con poca competencia</strong>Capturar mercado antes de la competencia.</li> <li><strong>Expansión nacional</strong>Vender a Bogotá, Cali, Medellín por WhatsApp + IG sin inversión física.</li> <li><strong>Alianzas locales</strong>Vender en tiendas de ropa o belleza.</li> </ul> </div> <div class="foda-card foda-d" data-letter="D"> <div class="foda-card-title">Debilidades</div> <ul class="foda-list"> <li><strong>Bajo volumen</strong> 4 ventas/mes = presupuesto pequeño para pauta.</li> <li><strong>Un solo canal</strong>Dependencia total de WhatsApp + boca a boca.</li> <li><strong>Poca visibilidad</strong>Sin catálogo en IG, sin reseñas, sin posicionamiento.</li> </ul> </div> <div class="foda-card foda-a" data-letter="A"> <div class="foda-card-title">️ Amenazas</div> <ul class="foda-list"> <li><strong>Percepción legal</strong>Cliente puede pensar "es ilegal", "me engaña". Tener comunicación clara.</li> <li><strong>Competencia</strong>Si baja el precio de originales o llega otra réplica.</li> <li><strong>Regulación</strong>INVIMA, riesgo legal sin documentación.</li> </ul> </div> </div> </div>
+</section> <div class="divider"></div> <!-- ══════════════════════════════════════════════
+ 3. MATRIZ
+══════════════════════════════════════════════ -->
+<section id="matriz"> <div class="container"> <div class="section-header"> <div class="section-num">3</div> <h2 class="section-title">Matriz <em>FO · FA · DO · DA</em></h2> <p class="section-desc">Estrategias cruzadas a partir del análisis FODA</p> </div> <div class="matriz-grid"> <div class="matriz-card fo"> <div class="matriz-header"> <span class="matriz-badge">FO</span> <span class="matriz-header-title">Estrategia de CRECIMIENTO </span> </div> <div class="matriz-items"> <div class="matriz-item"> <div class="matriz-item-check">Catálogo comparativo en Instagram</div>Publicar contenido comparando precio de perfume original vs réplica (Original $380.000 | Réplica $120.000) resaltando ahorro y calidad. <div><span class="matriz-meta">Meta: Lograr 8 ventas en una semana</span></div> </div> <div class="matriz-item"> <div class="matriz-item-check">Expansión nacional</div>Publicar contenido destacando "Envíos a toda Colombia en 5–8 días". <div><span class="matriz-meta">Meta: 5 clientes en nuevas ciudades en 30 días</span></div> </div> <div class="matriz-item"> <div class="matriz-item-check"> 3 Alianzas comerciales en Ibagué</div>Visitar salones de belleza y tiendas relacionadas para ofrecer venta de perfumes por comisión. <div><span class="matriz-meta">Meta: 1 alianza comercial en 15 días</span></div> </div> </div> </div> <div class="matriz-card fa"> <div class="matriz-header"> <span class="matriz-badge">FA</span> <span class="matriz-header-title">Estrategia de DEFENSA </span> </div> <div class="matriz-items"> <div class="matriz-item"> <div class="matriz-item-check">Transparencia del producto</div>Aclarar en publicaciones que el producto es réplica 1.1, explicando calidad y duración del aroma para evitar confusión con perfumes originales. <div><span class="matriz-meta">Meta: Mantener cero reclamos por engaño en 30 días</span></div> </div> <div class="matriz-item"> <div class="matriz-item-check">Prueba social en Instagram</div>Solicitar a clientes satisfechos 10 testimonios en video o foto y publicarlos en historias y posts. <div><span class="matriz-meta">Meta: Al menos 8 reseñas o testimonios en 30 días</span></div> </div> <div class="matriz-item"> <div class="matriz-item-check">Diferenciador</div> "Aroma Garantizado = Original". Fórmula idéntica, no versión barata. </div> </div> </div> <div class="matriz-card do"> <div class="matriz-header"> <span class="matriz-badge">DO</span> <span class="matriz-header-title">Estrategia de MEJORA </span> </div> <div class="matriz-items"> <div class="matriz-item"> <div class="matriz-item-check">Catálogo digital IG</div>Publicar 10 posts con fotos de los productos describiendo aromas, duración y precio. <div><span class="matriz-meta">Meta: 300 seguidores en 30 días</span></div> </div> <div class="matriz-item"> <div class="matriz-item-check">Pauta $70K</div>Invertir $70.000 en pauta segmentando hombres y mujeres, entre 18 y 55 años interesados en perfumes. </div> <div class="matriz-item"> <div class="matriz-item-check">Catálogo y estados en WhatsApp Business</div>Crear catálogo con fotos, precios y descripciones y publicar promociones en estados. <div><span class="matriz-meta">Meta: 10–15 consultas de clientes en 30 días</span></div> </div> </div> </div> <div class="matriz-card da"> <div class="matriz-header"> <span class="matriz-badge">DA</span> <span class="matriz-header-title">Estrategia de PREVENCIÓN </span> </div> <div class="matriz-items"> <div class="matriz-item"> <div class="matriz-item-check">Revisión legal del producto</div>Investigar requisitos del INVIMA para comercialización de perfumes y crear Términos y Condiciones claros. <div><span class="matriz-meta">Meta: Información legal organizada en 14 días</span></div> </div> <div class="matriz-item"> <div class="matriz-item-check">Respuesta de confianza al cliente</div>Preparar mensaje estándar para responder "¿Es original?" o "¿Es réplica?", explicando calidad, duración y diferencia. <div><span class="matriz-meta">Meta: Responder el 100% de consultas con información clara</span></div> </div> <div class="matriz-item"> <div class="matriz-item-check">Plan ante competencia</div>Fortalecer relación con clientes mediante testimonios, recomendaciones y contenido de experiencias reales. <div><span class="matriz-meta">Meta: 20 testimonios de clientes en 30 días en Instagram</span></div> </div> </div> </div> </div> </div>
+</section> <div class="divider"></div> <!-- ══════════════════════════════════════════════
+ 4. PESTEL
+══════════════════════════════════════════════ -->
+<section id="pestel"> <div class="container"> <div class="section-header"> <div class="section-num">4</div> <h2 class="section-title">Análisis <em>PESTEL</em></h2> <p class="section-desc">Factores del macroentorno que impactan el negocio</p> </div> <div class="pestel-grid"> <div class="pestel-card"> <div class="pestel-head pestel-p"> <div class="pestel-letter">P</div> <div class="pestel-head-text">Político</div> </div> <div class="pestel-body"> <div class="pestel-row"> <span class="pestel-row-tag tag-op">Oportunidad</span> <p>RUT + Cámara de Comercio generan credibilidad legal, acceso a ferias y programas de apoyo para emprendedores.</p> </div> <div class="pestel-row"> <span class="pestel-row-tag tag-risk">️ Riesgo</span> <p>Sin registro formal, los clientes pueden desconfiar y podría requerirse autorización de INVIMA para comercializar cosméticos.</p> </div> <div class="pestel-row"> <span class="pestel-row-tag tag-action">Acción</span> <p>Gestionar RUT en DIAN y registro en Cámara de Comercio de Ibagué en máximo 5 días.</p> </div> </div> </div> <div class="pestel-card"> <div class="pestel-head pestel-e1"> <div class="pestel-letter">E</div> <div class="pestel-head-text">Económico</div> </div> <div class="pestel-body"> <div class="pestel-row"> <span class="pestel-row-tag tag-op">Oportunidad</span> <p>Existe demanda por "lujo accesible". Márgenes por venta ($40.000–$50.000) permiten invertir en publicidad digital.</p> </div> <div class="pestel-row"> <span class="pestel-row-tag tag-risk">️ Riesgo</span> <p>Promociones de perfumes originales o competencia de réplicas más baratas pueden reducir el diferencial de precio.</p> </div> <div class="pestel-row"> <span class="pestel-row-tag tag-action">Acción</span> <p>Crear tabla comparativa "Original vs Réplica" destacando ahorro y duración del aroma.</p> </div> </div> </div> <div class="pestel-card"> <div class="pestel-head pestel-s"> <div class="pestel-letter">S</div> <div class="pestel-head-text">Social</div> </div> <div class="pestel-body"> <div class="pestel-row"> <span class="pestel-row-tag tag-op">Oportunidad</span> <p>Tendencia de consumo "lujo accesible". Las recomendaciones de clientes en redes generan confianza.</p> </div> <div class="pestel-row"> <span class="pestel-row-tag tag-risk">️ Riesgo</span> <p>Existe estigma: "réplica = falsificación". Esto puede generar desconfianza o críticas públicas.</p> </div> <div class="pestel-row"> <span class="pestel-row-tag tag-action">Acción</span> <p>Crear 3 testimonios en video de clientes reales explicando su experiencia.</p> </div> </div> </div> <div class="pestel-card"> <div class="pestel-head pestel-t"> <div class="pestel-letter">T</div> <div class="pestel-head-text">Tecnológico</div> </div> <div class="pestel-body"> <div class="pestel-row"> <span class="pestel-row-tag tag-op">Oportunidad</span> <p>Videos cortos en Instagram y TikTok pueden generar alto alcance orgánico sin gran inversión.</p> </div> <div class="pestel-row"> <span class="pestel-row-tag tag-risk">️ Riesgo</span> <p>Cambios en algoritmos pueden reducir el alcance o limitar contenido relacionado con réplicas.</p> </div> <div class="pestel-row"> <span class="pestel-row-tag tag-action">Acción</span> <p>Publicar 2 Reels o videos esta semana con demostración de perfumes.</p> </div> </div> </div> <div class="pestel-card"> <div class="pestel-head pestel-l"> <div class="pestel-letter">L</div> <div class="pestel-head-text">Legal</div> </div> <div class="pestel-body"> <div class="pestel-row"> <span class="pestel-row-tag tag-op">Oportunidad</span> <p>Políticas claras de cambios o garantía aumentan la confianza del cliente.</p> </div> <div class="pestel-row"> <span class="pestel-row-tag tag-risk">️ Riesgo</span> <p>Posibles reclamaciones por derechos de marca o venta de productos sin regulación.</p> </div> <div class="pestel-row"> <span class="pestel-row-tag tag-action">Acción</span> <p>Crear documento de Términos y Condiciones y enviarlo con cada venta.</p> </div> </div> </div> <div class="pestel-card"> <div class="pestel-head pestel-e2"> <div class="pestel-letter">E</div> <div class="pestel-head-text">Ambiental</div> </div> <div class="pestel-body"> <div class="pestel-row"> <span class="pestel-row-tag tag-op">Oportunidad</span> <p>Los frascos de vidrio son reciclables y pueden ser percibidos como más sostenibles.</p> </div> <div class="pestel-row"> <span class="pestel-row-tag tag-risk">️ Riesgo</span> <p>El envío de vidrio puede aumentar costos o generar roturas.</p> </div> <div class="pestel-row"> <span class="pestel-row-tag tag-action">Acción</span> <p>Usar embalaje protector adecuado (plástico burbuja y separadores).</p> </div> </div> </div> </div> </div>
+</section> <div class="divider"></div> <!-- ══════════════════════════════════════════════
+ 5. OBJETIVOS SMART
+══════════════════════════════════════════════ -->
+<section id="smart"> <div class="container"> <div class="section-header"> <div class="section-num">5</div> <h2 class="section-title">Objetivos <em>SMART + 5S</em></h2> <p class="section-desc">Sell · Speak · Serve · Save · Sizzle — en tres horizontes de planificación</p> </div> <!-- 5S chips legend --> <div style="display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem;"> <span class="s5-chip chip-sell" style="padding:.5rem 1rem;"><span class="s5-chip-label">Sell</span><span class="s5-chip-crit">Específico</span></span> <span class="s5-chip chip-speak" style="padding:.5rem 1rem;"><span class="s5-chip-label">Speak</span><span class="s5-chip-crit">Relevante</span></span> <span class="s5-chip chip-serve" style="padding:.5rem 1rem;"><span class="s5-chip-label">Serve</span><span class="s5-chip-crit">Alcanzable</span></span> <span class="s5-chip chip-save" style="padding:.5rem 1rem;"><span class="s5-chip-label">Save</span><span class="s5-chip-crit">A tiempo</span></span> <span class="s5-chip chip-sizzle" style="padding:.5rem 1rem;"><span class="s5-chip-label">Sizzle</span><span class="s5-chip-crit">Medible</span></span> </div> <div class="smart-timeline"> <!-- OBJ 1 --> <div class="smart-item smart-item-1"> <div class="smart-card"> <div class="smart-head"> <span class="smart-num">OBJ 1</span> <span class="smart-title">Corto Plazo — 30 Días</span> <span class="smart-meta-tag"> 30 días</span> <span class="smart-meta">Meta: Pasar de 4 a 12 ventas mensuales</span> </div> <div class="smart-body"> <div class="smart-goal">Meta: Pasar de 4 a 12 ventas mensuales en 30 días.</div> <div class="s5-grid"> <div class="s5-chip chip-sell"><span class="s5-chip-label">Sell</span><span class="s5-chip-crit">Específico</span></div> <div class="s5-chip chip-speak"><span class="s5-chip-label">Speak</span><span class="s5-chip-crit">Relevante</span></div> <div class="s5-chip chip-serve"><span class="s5-chip-label">Serve</span><span class="s5-chip-crit">Alcanzable</span></div> <div class="s5-chip chip-save"><span class="s5-chip-label">Save</span><span class="s5-chip-crit">A tiempo</span></div> <div class="s5-chip chip-sizzle"><span class="s5-chip-label">Sizzle</span><span class="s5-chip-crit">Medible</span></div> </div> <div class="smart-sentence">Lograr <strong>12 ventas mensuales</strong> vendiendo perfumes réplica 1.1 (clásicos y árabes) con comunicación transparente al cliente <span class="s-tag tag-sell">Sell – Específico</span>, promocionando el catálogo activo en Instagram y por WhatsApp con recomendación personal local <span class="s-tag tag-speak">Speak – Relevante</span>, brindando respuesta en menos de 30 minutos, entrega en menos de 24 horas en Ibagué y garantía de cambio de 7 días <span class="s-tag tag-serve">Serve – Alcanzable</span>, implementando el catálogo digital, publicando 10 posts y creando una lista básica de clientes en los primeros 30 días <span class="s-tag tag-save">Save – A tiempo</span>, y publicando 5 testimonios en video junto con la "Política de Transparencia de Réplicas" para generar confianza y prueba social <span class="s-tag tag-sizzle">Sizzle – Medible</span>. </div> </div> </div> </div> <!-- OBJ 2 --> <div class="smart-item smart-item-2"> <div class="smart-card"> <div class="smart-head"> <span class="smart-num">OBJ 2</span> <span class="smart-title">Mediano Plazo — 60 Días</span> <span class="smart-meta-tag"> 60 días</span> <span class="smart-meta">Meta: Alcanzar 30 ventas mensuales</span> </div> <div class="smart-body"> <div class="smart-goal">Meta: Alcanzar 30 ventas mensuales en 60 días.</div> <div class="s5-grid"> <div class="s5-chip chip-sell"><span class="s5-chip-label">Sell</span><span class="s5-chip-crit">Específico</span></div> <div class="s5-chip chip-speak"><span class="s5-chip-label">Speak</span><span class="s5-chip-crit">Relevante</span></div> <div class="s5-chip chip-serve"><span class="s5-chip-label">Serve</span><span class="s5-chip-crit">Alcanzable</span></div> <div class="s5-chip chip-save"><span class="s5-chip-label">Save</span><span class="s5-chip-crit">A tiempo</span></div> <div class="s5-chip chip-sizzle"><span class="s5-chip-label">Sizzle</span><span class="s5-chip-crit">Medible</span></div> </div> <div class="smart-sentence">Alcanzar <strong>30 ventas mensuales</strong> vendiendo mediante 3 canales: WhatsApp directo, catálogo en Instagram y expansión inicial a Bogotá y Cali <span class="s-tag tag-sell">Sell – Específico</span>, publicando 25 contenidos en Instagram y pautando en Facebook e Instagram con un presupuesto de $100.000 mensual <span class="s-tag tag-speak">Speak – Relevante</span>, ofreciendo atención continua por WhatsApp, entregas en Ibagué en menos de 24 horas y envíos nacionales en 3–5 días <span class="s-tag tag-serve">Serve – Alcanzable</span>, implementando un calendario de contenido y un CRM básico en Excel con registro de clientes y aromas preferidos en los primeros 60 días <span class="s-tag tag-save">Save – A tiempo</span>, y obteniendo 15 testimonios de clientes junto con 2 colaboraciones con microinfluenciadores locales para ampliar el alcance de la marca <span class="s-tag tag-sizzle">Sizzle – Medible</span>. </div> </div> </div> </div> <!-- OBJ 3 --> <div class="smart-item smart-item-3"> <div class="smart-card"> <div class="smart-head"> <span class="smart-num">OBJ 3</span> <span class="smart-title">Largo Plazo — 90 Días</span> <span class="smart-meta-tag"> 90 días</span> <span class="smart-meta">Meta: Alcanzar 50 ventas mensuales</span> </div> <div class="smart-body"> <div class="smart-goal">Meta: Alcanzar 50 ventas mensuales en 90 días.</div> <div class="s5-grid"> <div class="s5-chip chip-sell"><span class="s5-chip-label">Sell</span><span class="s5-chip-crit">Específico</span></div> <div class="s5-chip chip-speak"><span class="s5-chip-label">Speak</span><span class="s5-chip-crit">Relevante</span></div> <div class="s5-chip chip-serve"><span class="s5-chip-label">Serve</span><span class="s5-chip-crit">Alcanzable</span></div> <div class="s5-chip chip-save"><span class="s5-chip-label">Save</span><span class="s5-chip-crit">A tiempo</span></div> <div class="s5-chip chip-sizzle"><span class="s5-chip-label">Sizzle</span><span class="s5-chip-crit">Medible</span></div> </div> <div class="smart-sentence">Alcanzar <strong>50 ventas mensuales</strong> vendiendo réplicas 1.1 a clientes locales y nacionales mediante WhatsApp, Instagram, pauta pagada, TikTok y 5 alianzas comerciales en Ibagué <span class="s-tag tag-sell">Sell – Específico</span>, publicando 30 contenidos estratégicos en Instagram y 5 videos en TikTok apoyados con una pauta mensual de $150.000 <span class="s-tag tag-speak">Speak – Relevante</span>, ofreciendo atención premium con entregas en menos de 24 horas en Ibagué y envíos nacionales en 3–5 días con garantía de satisfacción <span class="s-tag tag-serve">Serve – Alcanzable</span>, optimizando las operaciones con automatización básica, apoyo de asistentes, catálogo actualizado semanalmente y organización administrativa consolidada en los primeros 90 días <span class="s-tag tag-save">Save – A tiempo</span>, y construyendo una reputación sólida con 20 reseñas verificadas y testimonios constantes que respalden la confianza en la marca <span class="s-tag tag-sizzle">Sizzle – Medible</span>. </div> </div> </div> </div> </div> </div>
+</section> <div class="divider"></div> <!-- ══════════════════════════════════════════════
+ 6. STP
+══════════════════════════════════════════════ -->
+<section id="stp"> <div class="container"> <div class="section-header"> <div class="section-num">6</div> <h2 class="section-title">Estrategia <em>STP</em></h2> <p class="section-desc">Segmentación · Targeting · Posicionamiento</p> </div> <div class="stp-grid"> <div class="stp-card stp-s"> <div class="stp-card-title">Segmentación</div> <div class="stp-q">¿A quién le vendemos?</div> <div class="stp-content"> <strong>Demográfico:</strong><br> <span class="stp-tag">Mujeres 20–40 años</span> <span class="stp-tag">Hombres 22–45 años</span> <span class="stp-tag">Colombia</span> <br><br> <strong>Psicográfico:</strong><br> <span class="stp-tag">Gustan del lujo accesible</span> <span class="stp-tag">Conscientes del precio</span> <span class="stp-tag">Activos en Instagram</span> <br><br> <strong>Conductual:</strong><br> <span class="stp-tag">Compran por WhatsApp</span> <span class="stp-tag">Buscan calidad vs precio</span> <span class="stp-tag">Deciden por reseñas</span> </div> </div> <div class="stp-card stp-t"> <div class="stp-card-title">Target (Público Ideal)</div> <div class="stp-q">El cliente estrella</div> <div class="stp-content"> <p>Hombre o mujer de <strong>25 a 38 años</strong>, residente en Colombia (principalmente Ibagué y ciudades principales), con ingresos medios. Le gusta oler bien y proyectar elegancia, pero no está dispuesto a pagar $400.000+ por un frasco original.</p> <br> <p><strong>¿Qué le duele?</strong>Siente que los perfumes originales son inalcanzables. Ha probado réplicas baratas que no duran ni 2 horas y quedó decepcionado.</p> <br> <p><strong>¿Qué busca?</strong>Un aroma idéntico al original, con duración real, a un precio justo y con alguien de confianza que responda rápido.</p> </div> </div> <div class="stp-card stp-p"> <div class="stp-card-title">Posicionamiento</div> <div class="stp-q">¿Cómo nos reconocen?</div> <div class="stp-content"> <p>Queremos que AN Perfumería sea reconocida como la opción más confiable y de mayor calidad en réplicas 1.1 en Colombia, donde el cliente sabe exactamente lo que compra y se va satisfecho.</p> <br> <span class="stp-tag">Transparencia</span> <span class="stp-tag">Calidad 1.1</span> <span class="stp-tag">Precio accesible</span> </div> </div> </div> <div class="posicionamiento-box"> <blockquote>"Soy el único en Ibagué que ofrece réplicas 1.1 con aroma idéntico al original, con transparencia total y atención personalizada, a menos de un tercio del precio."</blockquote> <div class="diferenciador"> <span class="dif-tag">Transparencia</span> <span class="dif-tag">Calidad 1.1</span> <span class="dif-tag">Precio accesible</span> </div> </div> </div>
+</section> <div class="divider"></div> <!-- ══════════════════════════════════════════════
+ 7. 7 P's
+══════════════════════════════════════════════ -->
+<section id="pees"> <div class="container"> <div class="section-header"> <div class="section-num">7</div> <h2 class="section-title">Las <em>7 P's</em> del Marketing</h2> <p class="section-desc">Mix de marketing completo para AN Perfumería</p> </div> <div class="p7-grid"> <div class="p7-card p1"> <div class="p7-head"> <span class="p7-num">P1</span> <span class="p7-name">Producto</span> </div> <div class="p7-body"> <p><strong>¿Qué problema resuelvo?</strong></p> <p>Lociones réplica 1.1 de fragancias de diseñador reconocidas (clásicos y árabes). Aroma idéntico al original, con buena fijación y longevidad.</p> <p><strong>Beneficio clave:</strong>Oler a diseñador sin pagar precio de diseñador. Confianza total: se aclara desde el inicio que es réplica.</p> <p><strong>Presentaciones:</strong> 50ml y 100ml — árabes y clásicos occidentales.</p> </div> </div> <div class="p7-card p2"> <div class="p7-head"> <span class="p7-num">P2</span> <span class="p7-name">Precio</span> </div> <div class="p7-body"> <p><strong>Estrategia de precio</strong></p> <p>Estrategia de valor percibido: no somos los más baratos, somos los que mejor calidad ofrecen en el rango accesible.</p> <p>Original: $350.000 – $500.000 | AN Perfumería: $90.000 – $130.000</p> <p><strong>Paquetes:</strong> 2×1 especial, kit regalo, descuento por primera compra.</p> </div> </div> <div class="p7-card p3"> <div class="p7-head"> <span class="p7-num">P3</span> <span class="p7-name">Plaza</span> </div> <div class="p7-body"> <p><strong>Canales digitales</strong></p> <p><strong>Canal principal:</strong>WhatsApp Business (catálogo, atención, pedidos y seguimiento).</p> <p><strong>Canal de visibilidad:</strong>Instagram (contenido, reels, historias con CTA a WhatsApp).</p> <p><strong>Distribución:</strong>Entrega directa en Ibagué (&lt;24h) + Envíos nacionales por mensajería (3–5 días).</p> <p><strong>Próximo:</strong>TikTok para alcance orgánico jóvenes 18–30.</p> </div> </div> <div class="p7-card p4"> <div class="p7-head"> <span class="p7-num">P4</span> <span class="p7-name">Promoción</span> </div> <div class="p7-body"> <p><strong>¿Cómo gritamos que existimos?</strong></p> <p><strong>Contenido educativo:</strong>Posts comparativos Original vs Réplica, demostraciones de duración.</p> <p><strong>Prueba social:</strong>Testimonios en video, reseñas de clientes reales.</p> <p><strong>Pauta digital:</strong>Facebook/Instagram Ads segmentado por intereses en perfumería, $70.000–$150.000/mes.</p> <p><strong>CTA</strong> siempre hacia WhatsApp para cerrar la venta.</p> </div> </div> <div class="p7-card p5"> <div class="p7-head"> <span class="p7-num">P5</span> <span class="p7-name">Personas</span> </div> <div class="p7-body"> <p><strong>La experiencia humana</strong></p> <p>Tono de atención: Cálido, cercano, honesto y experto. Como el amigo que sabe de perfumes y te da el mejor consejo.</p> <p>Respuesta garantizada en menos de 30 minutos en horario activo. Protocolo claro ante preguntas como "¿Es original?" o "¿Cuánto dura?".</p> <p><strong>Meta:</strong>Que cada cliente se sienta asesorado, no solo vendido.</p> </div> </div> <div class="p7-card p6"> <div class="p7-head"> <span class="p7-num">P6</span> <span class="p7-name">Procesos</span> </div> <div class="p7-body"> <p><strong>Del anuncio al producto en mano</strong></p> <p>Cliente ve Reel en Instagram → Hace clic en enlace de bio → Llega a WhatsApp → Recibe catálogo + asesoría → Realiza pago → Confirma y empaca → Entrega o despacho → Seguimiento post-venta y solicitud de reseña.</p> <p><strong>CRM básico en Excel:</strong> registro de cliente, aroma, fecha, canal.</p> </div> </div> <div class="p7-card p7"> <div class="p7-head"> <span class="p7-num">P7</span> <span class="p7-name">Prueba Física</span> </div> <div class="p7-body"> <ul> <li>Fotos profesionales del producto con buena iluminación y fondo neutro.</li> <li>Videos unboxing mostrando empaque y presentación del perfume.</li> <li>Capturas de pantalla de conversaciones de clientes satisfechos.</li> <li>Perfil de Instagram ordenado, estético y con los momentos destacados.</li> <li>Política de transparencia de réplicas enviada con cada pedido.</li> </ul> </div> </div> </div> </div>
+</section> <div class="divider"></div> <!-- ══════════════════════════════════════════════
+ 8. 4 M's
+══════════════════════════════════════════════ -->
+<section id="emes"> <div class="container"> <div class="section-header"> <div class="section-num">8</div> <h2 class="section-title">Las <em>4 M's</em> de Publicidad</h2> <p class="section-desc">Mission · Money · Message · Media</p> </div> <div class="m4-grid"> <div class="m4-card m-mission"> <div class="m4-title">Mission — Objetivo de la campaña</div> <ul class="m4-list"> <li>Aumentar ventas de 4 a 20 unidades/mes en 60 días</li> <li>Crecer de 0 a 500 seguidores en Instagram en 30 días</li> <li>Captar 3 alianzas comerciales en Ibagué (salones de belleza, tiendas de ropa)</li> <li>Posicionar AN Perfumería como referente de réplicas 1.1 confiables en Colombia</li> </ul> </div> <div class="m4-card m-money"> <div class="m4-title">Money — Presupuesto mes 1</div> <ul class="m4-list"> <li>Pauta Instagram/Facebook: $70.000 – $100.000</li> <li>Empaque y embalaje de envíos: $20.000</li> <li>Sesión de fotos inicial (1 vez): $50.000</li> <li>Fletes iniciales en Ibagué: $0 (entrega personal)</li> <li><strong>Total estimado mes 1: $140.000 – $170.000</strong></li> </ul> </div> <div class="m4-card m-message"> <div class="m4-title">Message — ¿Qué decimos?</div> <ul class="m4-list"> <li><strong>Propuesta de valor:</strong> "Aroma de diseñador al alcance de todos — sin mentiras, sin copias baratas. Réplica 1.1 de verdad."</li> <li><strong>Tono:</strong>Transparente, cálido, aspiracional pero accesible</li> <li><strong>Visual:</strong>Fotos limpias, fondo neutro, botella bien iluminada — estética de lujo minimalista</li> <li><strong>CTA:</strong> "Escríbeme y te asesoro sin costo"</li> </ul> </div> <div class="m4-card m-media"> <div class="m4-title">Media — Canales de comunicación</div> <ul class="m4-list"> <li>Instagram: Contenido (Reels, Stories, Posts) — 5 publicaciones/semana</li> <li>WhatsApp Business: Catálogo, estados, CRM básico</li> <li>Facebook/IG Ads: Pauta segmentada a intereses en perfumería e Ibagué</li> <li>TikTok: Presencia inicial — 2 videos/semana de demostración</li> </ul> </div> </div> </div>
+</section> <div class="divider"></div> <!-- ══════════════════════════════════════════════
+ 9. SOSTAC
+══════════════════════════════════════════════ -->
+<section id="sostac"> <div class="container"> <div class="section-header"> <div class="section-num">9</div> <h2 class="section-title">Mapa <em>SOSTAC</em></h2> <p class="section-desc">Situación · Objetivos · Estrategia · Tácticas · Acción · Control</p> </div> <div class="sostac-grid"> <div class="sostac-row"> <div class="sostac-letter sl-s1"> <span class="sl-big">S</span> <span class="sl-word">Situación</span> </div> <div class="sostac-content"> <div class="sostac-q">¿DÓNDE ESTAMOS?</div> <p><strong>FODA:</strong>Fortaleza = Calidad 1.1 + transparencia + atención rápida. Debilidad = Pocas ventas (4/mes), sin presencia digital activa. Oportunidad = Mercado de "lujo accesible" en crecimiento, expansión nacional. Amenaza = Percepción legal del consumidor, competidores de menor precio.<br><br><strong>PESTEL:</strong>Entorno favorable tecnológicamente (redes sociales), riesgo regulatorio INVIMA manejable.</p> </div> </div> <div class="sostac-row"> <div class="sostac-letter sl-o"> <span class="sl-big">O</span> <span class="sl-word">Objetivos</span> </div> <div class="sostac-content"> <div class="sostac-q">¿A DÓNDE VAMOS?</div> <p><strong>30 días:</strong> 12 ventas/mes, 300 seguidores en IG, 5 testimonios publicados.<br><strong>60 días:</strong> 30 ventas/mes, 3 alianzas en Ibagué, 15 reseñas.<br><strong>90 días:</strong> 50 ventas/mes, presencia en TikTok, 20 reseñas verificadas.<br><br>Objetivos alineados con las 5S: Sell + Speak + Serve + Save + Sizzle.</p> </div> </div> <div class="sostac-row"> <div class="sostac-letter sl-s2"> <span class="sl-big">S</span> <span class="sl-word">Estrategia</span> </div> <div class="sostac-content"> <div class="sostac-q">¿CÓMO LLEGAMOS?</div> <p><strong>Segmento:</strong>Hombres y mujeres 20–45 años en Colombia que buscan lujo accesible. Adultos jóvenes que ya conocen perfumes de diseñador pero no pueden pagar el precio original.<br><br><strong>Posicionamiento:</strong> "La réplica 1.1 más confiable y transparente de Colombia, aroma idéntico al original a menos de un tercio del precio."</p> </div> </div> <div class="sostac-row"> <div class="sostac-letter sl-t"> <span class="sl-big">T</span> <span class="sl-word">Tácticas</span> </div> <div class="sostac-content"> <div class="sostac-q">¿QUÉ HACEMOS CONCRETAMENTE?</div> <p><strong>7P's:</strong>Producto = réplicas 1.1 | Precio = $90K–$130K + paquetes | Plaza = WhatsApp + Instagram + envíos nacionales | Promoción = contenido educativo + pauta + testimonios | Personas = asesoría cálida y rápida | Procesos = embudo WhatsApp claro | Evidencia = fotos pro + testimonios + política de transparencia.</p> </div> </div> <div class="sostac-row"> <div class="sostac-letter sl-a"> <span class="sl-big">A</span> <span class="sl-word">Acción</span> </div> <div class="sostac-content"> <div class="sostac-q">¿CUÁNDO Y CÓMO EJECUTAMOS?</div> <p><strong>4M's:</strong>Mission = 20 ventas/mes y 500 seguidores | Money = $140.000–$170.000 mes 1 | Message = "Aroma de diseñador, precio real — réplica 1.1 sin mentiras" | Media = Instagram (5 posts/semana) + WhatsApp Business + Facebook Ads + TikTok (2 videos/semana). Embudo TOFU→MOFU→BOFU activo con CTA a WhatsApp.</p> </div> </div> <div class="sostac-row"> <div class="sostac-letter sl-c"> <span class="sl-big">C</span> <span class="sl-word">Control</span> </div> <div class="sostac-content"> <div class="sostac-q">¿CÓMO MEDIMOS EL ÉXITO?</div> <p><strong>KPIs semanales:</strong>N° posts publicados | Alcance e impresiones en IG | Chats abiertos en WhatsApp | Ventas cerradas | Ingresos | Testimonios obtenidos.<br><br><strong>Herramienta:</strong>Mini tabla de seguimiento en Excel.<br><strong>Revisión:</strong>Cada domingo — ¿Qué funcionó? ¿Qué ajusto la próxima semana? El plan es un documento vivo.</p> </div> </div> </div> </div>
+</section> <!-- ══════════════════════════════════════════════
+ FOOTER
+══════════════════════════════════════════════ -->
+<footer> <span class="footer-logo">AN Perfumería</span> <p>Lociones 1.1. · Réplicas de diseñador · Aromas premium a precio accesible</p> <p>Ibagué, Tolima – Colombia</p> <p style="margin-top:.8rem;">Portafolio 1 · Curso: Marketing Digital – ABP · Marzo 2025</p>
+</footer> <!-- ══════════════════════════════════════════════
+ JS: scroll reveal
+══════════════════════════════════════════════ -->
+<script>
+const observer = new IntersectionObserver((entries) => {
+ entries.forEach(e => {
+ if (e.isIntersecting) {
+ e.target.classList.add('visible');
+ observer.unobserve(e.target);
+ }
+ });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('section:not(.hero)').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
